@@ -189,7 +189,7 @@
 <p>React.js 和 Vue.js 确实有一些相似 —— 它们都提供数据驱动、可组合搭建的视图组件。然而，它们的内部实现是完全不同的。React 是基于  Virtual DOM —— 一种在内存中描述 DOM 树状态的数据结构。React 中的数据通常被看作是不可变的，而 DOM 操作则是通过 Virtual DOM 的 diff 来计算的。与之相比，Vue.js 中的数据默认是可变的，而数据的变更会直接出发对应的 DOM 更新。相比于 Virtual DOM，Vue.js 使用实际的 DOM 作为模板，并且保持对真实节点的引用来进行数据绑定。</p>
 <p>Virtual DOM 提供了一个函数式的描述视图的方法，这很 cool。因为它不使用数据观察机制，每次更新都会重新渲染整个应用，因此从定义上保证了视图通与数据的同步。它也开辟了 JavaScript 同构应用的可能性。</p>
 <p>实话实说，我自己对 React 的设计理念也是十分欣赏的。但 React 有一个问题就是组件的逻辑和视图结合得非常紧密。对于部分开发者来说，他们可能觉得这是个优点，但对那些像我一样兼顾设计和开发的人来说，还是更偏好模板，因为模板能让我们更好地在视觉上思考设计和 CSS。JSX 和 JavaScript 逻辑的混合干扰了我将代码映射到设计的思维过程。相反，Vue.js 通过在模板中加入一个轻量级的DSL (指令系统)，换来一个依旧直观的模板，且能够将逻辑封装进指令和过滤器中。</p>
-<p>React的另一个问题是：由于 DOM 更新完全交由 Virtual DOM 管理，当你真的<strong>想要</strong>自己控制 DOM 是就有点棘手了（虽然理论上你可以，但这样做时你本质上在对抗 React 的设计思想）。对于需要复杂时间控制的动画来说这就变成了一项很讨人厌的限制。在这方面，Vue.js 允许更多的灵活性，并且有不少用 Vue.js 构建的富交互实例。参见<a href="https://github.com/yyx990803/vue/wiki/Projects-Using-Vue.js#interactive-experiences" target="_blank" rel="external">一些用 Vue.js 制作的 FWA/Awwwards 获奖站点</a></p>
+<p>React的另一个问题是：由于 DOM 更新完全交由 Virtual DOM 管理，当你真的<strong>想要</strong>自己控制 DOM 时就有点棘手了（虽然理论上你可以，但这样做时你本质上在对抗 React 的设计思想）。对于需要复杂时间控制的动画来说这就变成了一项很讨人厌的限制。在这方面，Vue.js 允许更多的灵活性，并且有不少用 Vue.js 构建的富交互实例。参见<a href="https://github.com/yyx990803/vue/wiki/Projects-Using-Vue.js#interactive-experiences" target="_blank" rel="external">一些用 Vue.js 制作的 FWA/Awwwards 获奖站点</a></p>
 </li>
 <li><p><strong>Vue.js 和 Polymer 有什么区别?</strong></p>
 <p>Polymer 是另一个由 Google 支持的项目，实际上也是 Vue.js 的灵感来源之一。Vue.js 的组件可以类比为 Polymer 中的自定义元素，它们都提供类似的开发体验。最大的不同在于，Polymer 依赖最新的 Web Components 特性，在不支持的浏览器中，需要加载笨重的 polyfill，性能也会受到影响。相对的，Vue.js 无需任何依赖，最低兼容到IE9。</p>
