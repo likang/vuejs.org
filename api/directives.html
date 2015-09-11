@@ -144,7 +144,7 @@
 <p>除 0 外的其他伪值将移除该特性。</p>
 <p>或者，你可以直接将该指令绑定到一个对象。对象的键会被作为特性名称，根据对应的值的真伪进行切换。</p>
 <p>在内部，普通特性中的 {&#123; Mustache &#125;} 插值会被转换为 <code>v-attr</code> 指令进行编译。</p>
-<p>从 0.12.9 开始，当 {&#123; Mustache &#125;} 直接用在 <code>&lt;input&gt;</code> 元素的 <code>value</code> 特性中时，实际设置的会是其 <code>value</code> 属性 (property) 而不是特性 (attribute)。例如，<code>&lt;input value=&quot;{{val}}&quot;&gt;</code> 不会更新其特性值，而是会直接设置其属性值。</p>
+<p>从 0.12.9 开始，当 <code>v-attr</code> 直接用在 <code>&lt;input&gt;</code> 元素的 <code>value</code> 特性中时，实际设置的会是其 <code>value</code> 属性 (property) 而不是特性 (attribute)。例如，<code>&lt;input value=&quot;{{val}}&quot;&gt;</code> 不会更新其特性值，而是会直接设置其属性值。</p>
 <p class="tip">在为 <code>&lt;img&gt;</code> 元素设置 <code>src</code> 特性时，应该使用 <code>v-attr</code> 绑定而不是 mustache 模板绑定。浏览器会先于 Vue.js 对你的模板进行解析。所以当浏览器试图获取图片 URL 时，使用 mustache 模板绑定的数据会导致 404 错误。</p>
 
 <h3 id="v-style">v-style</h3><ul>
@@ -201,7 +201,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">v-repeat</span>=<span class="value">"user in users"</span>&gt;</span></span><br><span class="line">    &#123;&#123;user.name&#125;&#125; &#123;&#123;user.email&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>更多详细示例，请参看<a href="../guide/list.html">列表渲染</a>.</p>
 <h2 id="字面指令">字面指令</h2><blockquote>
-<p>字面指令将它们的特性值视为纯字符串，不会视图建立数据绑定。它们只负责调用 <code>bind()</code>函数一次。字面指令的值也可以包含 &#123;&#123;mustache&#125;&#125; 插值，具体的处理方式请参考<a href="/guide/custom-directive.html#动态字面指令">动态字面指令</a>。</p>
+<p>字面指令将它们的特性值视为纯字符串，不会视图建立数据绑定。它们只负责调用 <code>bind()</code>函数一次。字面指令的值也可以包含 mustache 表达式插值，具体的处理方式请参考<a href="/guide/custom-directive.html#动态字面指令">动态字面指令</a>。</p>
 </blockquote>
 <h3 id="v-transition">v-transition</h3><ul>
 <li>可以响应 Mustaches 插值</li>

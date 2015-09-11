@@ -121,18 +121,15 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 启动调试模式。详见下文</span></span><br><span class="line">  debug: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 启用严格模式，详见下文</span></span><br><span class="line">  strict: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 指令的特性前缀</span></span><br><span class="line">  prefix: <span class="string">'v-'</span>,</span><br><span class="line">  <span class="comment">// 插入分隔符</span></span><br><span class="line">  <span class="comment">// 对于插入HTML，添加一个额外的最外层字符</span></span><br><span class="line">  delimiters: [<span class="string">'&#123;&amp;#123;'</span>, <span class="string">'&amp;#125;&#125;'</span>],</span><br><span class="line">  <span class="comment">// 抑制 warnings？</span></span><br><span class="line">  silent: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 插入 mustache 绑定?</span></span><br><span class="line">  interpolate: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// (对 directives 和 watchers) 使用异步更新？</span></span><br><span class="line">  <span class="keyword">async</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 允许改变所观察的Array的原型链？</span></span><br><span class="line">  proto: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>你可以直接对其修改，例如：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.debug = <span class="literal">true</span> <span class="comment">// 开启调试模式</span></span><br></pre></td></tr></table></figure>
-<p><strong>调试模式</strong></p>
-<p>当 <code>Vue.config.debug</code> 设置为 true 时，Vue 会</p>
+<h4 id="调试模式">调试模式</h4><p>当 <code>Vue.config.debug</code> 设置为 true 时，Vue 会</p>
 <ol>
 <li>打印所有警告的栈的追踪记录</li>
 <li>让所有 DOM 里的锚结点都采用注释结点。这会让审查元素结构变得更容易。</li>
 </ol>
 <p class="tip">调试模式在压缩过的生产版本中是不可用的。</p>
 
-<p><strong>严格模式</strong></p>
-<p>默认情况下，Vue 组件从继承链（通过 <code>Vue.extend()</code> 创建）和它在视图里的父组件那里继承所有的资源。在严格模式下，组件只能继承从类继承的资源，不能从父视图层次继承。当启用了严格的模式时，资源应该是全局性的，或者是依赖于需要它们的组件。使用严格模式，能更好的封装组件和增加大型的项目的可重用性。</p>
-<p><strong>改变分隔符 (Delimiters)</strong></p>
-<p>如果设置了文本插值的分隔符，HTML 插值的分隔符也将改变。只需要用文本分隔符符最外面的字符再包裹一层：</p>
+<h4 id="严格模式">严格模式</h4><p>默认情况下，Vue 组件从继承链（通过 <code>Vue.extend()</code> 创建）和它在视图里的父组件那里继承所有的资源。在严格模式下，组件只能继承从类继承的资源，不能从父视图层次继承。当启用了严格的模式时，资源应该是全局性的，或者是依赖于需要它们的组件。使用严格模式，能更好的封装组件和增加大型的项目的可重用性。</p>
+<h4 id="改变分隔符_(Delimiters)">改变分隔符 (Delimiters)</h4><p>如果设置了文本插值的分隔符，HTML 插值的分隔符也将改变。只需要用文本分隔符符最外面的字符再包裹一层：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.delimiters = [<span class="string">'(%'</span>, <span class="string">'%)'</span>]</span><br><span class="line"><span class="comment">// (% %) 是文本插值的标签</span></span><br><span class="line"><span class="comment">// 则 ((% %)) 是 HTML 插值的标签</span></span><br></pre></td></tr></table></figure>
 <h3 id="Vue-extend(_options_)">Vue.extend( options )</h3><ul>
 <li><strong>options</strong> <code>Object</code></li>
@@ -147,7 +144,7 @@
 <h3 id="Vue-nextTick(_callback_)">Vue.nextTick( callback )</h3><ul>
 <li><strong>callback</strong> <code>Function</code></li>
 </ul>
-<p>延迟执行回调到下一次 DOM 更新循环。在修改数据后调用它，等待 DOM 更新。详见 <a href="/guide/directives.html#理解异步更新">理解异步更新</a>。</p>
+<p>延迟执行回调到下一次 DOM 更新循环。在修改数据后调用它，等待 DOM 更新。详见 <a href="/guide/best-practices.html#理解异步更新">理解异步更新</a>。</p>
 <h3 id="Vue-directive(_id,_[definition]_)">Vue.directive( id, [definition] )</h3><ul>
 <li><strong>id</strong> <code>String</code></li>
 <li><strong>definition</strong> <code>Function</code> or <code>Object</code> <em>optional</em></li>
